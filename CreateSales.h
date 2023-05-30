@@ -75,48 +75,65 @@ namespace APM {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(463, 205);
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button1->Location = System::Drawing::Point(373, 134);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(232, 47);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Создать";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &CreateSales::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(37, 205);
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button2->Location = System::Drawing::Point(5, 134);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(220, 47);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Отмена";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &CreateSales::button2_Click);
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(191, 32);
+			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(184, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(164, 16);
+			this->label1->Size = System::Drawing::Size(291, 27);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Создать бланк продажи";
 			// 
 			// label2
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(1, 60);
+			this->label2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label2->Location = System::Drawing::Point(1, 50);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(123, 16);
+			this->label2->Size = System::Drawing::Size(366, 22);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Название товара";
 			// 
 			// label3
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(1, 88);
+			this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label3->Location = System::Drawing::Point(1, 76);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(135, 16);
+			this->label3->Size = System::Drawing::Size(366, 24);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Количество товара";
 			// 
@@ -130,31 +147,34 @@ namespace APM {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(383, 60);
+			this->textBox1->Location = System::Drawing::Point(373, 50);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->Size = System::Drawing::Size(232, 22);
 			this->textBox1->TabIndex = 6;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(383, 88);
+			this->textBox2->Location = System::Drawing::Point(373, 78);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 22);
+			this->textBox2->Size = System::Drawing::Size(232, 22);
 			this->textBox2->TabIndex = 7;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(383, 116);
+			this->textBox3->Location = System::Drawing::Point(373, 104);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 22);
+			this->textBox3->Size = System::Drawing::Size(232, 22);
 			this->textBox3->TabIndex = 8;
 			// 
 			// label5
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(1, 115);
+			this->label5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label5->Location = System::Drawing::Point(1, 104);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(173, 16);
+			this->label5->Size = System::Drawing::Size(366, 22);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"Время до отгрузки в днях";
 			// 
@@ -162,7 +182,9 @@ namespace APM {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(617, 253);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->ClientSize = System::Drawing::Size(617, 194);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
@@ -174,7 +196,7 @@ namespace APM {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"CreateSales";
-			this->Text = L"CreateSales";
+			this->Text = L"Создание записи о продаже";
 			this->Load += gcnew System::EventHandler(this, &CreateSales::CreateSales_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

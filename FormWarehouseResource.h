@@ -177,7 +177,7 @@ namespace APM {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(1460, 55);
 			this->button1->TabIndex = 1;
-			this->button1->Text = L"Создать информацию о новом материале заказ";
+			this->button1->Text = L"Создать информацию о новом материале";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &FormWarehouseResource::button1_Click);
 			// 
@@ -192,7 +192,7 @@ namespace APM {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(1460, 55);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"Изменить информацию о материале в таблице";
+			this->button3->Text = L"Изменить информацию о материале";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &FormWarehouseResource::button3_Click);
 			// 
@@ -237,7 +237,7 @@ namespace APM {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(1460, 55);
 			this->button2->TabIndex = 6;
-			this->button2->Text = L"Удаление записи о материале";
+			this->button2->Text = L"Удаление информации о материале";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &FormWarehouseResource::button2_Click_1);
 			// 

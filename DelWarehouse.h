@@ -64,48 +64,61 @@ namespace APM {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(436, 23);
+			this->textBox1->Location = System::Drawing::Point(485, 23);
 			this->textBox1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(175, 27);
+			this->textBox1->Size = System::Drawing::Size(126, 27);
 			this->textBox1->TabIndex = 1;
 			// 
 			// label2
 			// 
-			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->label2->Location = System::Drawing::Point(3, 23);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(425, 20);
+			this->label2->Size = System::Drawing::Size(474, 27);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Введите номер элемента который надо удолить";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(345, 70);
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button1->Location = System::Drawing::Point(284, 70);
 			this->button1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(266, 32);
+			this->button1->Size = System::Drawing::Size(327, 32);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Применить";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &DelWarehouse::button1_Click);
 			// 
 			// button2
 			// 
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->button2->Location = System::Drawing::Point(7, 70);
 			this->button2->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(330, 32);
+			this->button2->Size = System::Drawing::Size(269, 32);
 			this->button2->TabIndex = 4;
 			this->button2->Text = L"Отмена";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &DelWarehouse::button2_Click);
 			// 
 			// DelWarehouse
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(10, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->ClientSize = System::Drawing::Size(624, 120);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -116,7 +129,7 @@ namespace APM {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
 			this->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Name = L"DelWarehouse";
-			this->Text = L"Удаление элемента";
+			this->Text = L"Удаление элемента со склада материаллов";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

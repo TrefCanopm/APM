@@ -212,6 +212,9 @@
     <EmbeddedResource Include="ChangeFinished.resx">
       <DependentUpon>ChangeFinished.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangeProduct.resx">
+      <DependentUpon>ChangeProduct.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePurchase.resx">
       <DependentUpon>ChangePurchase.h</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateFinished.resx">
       <DependentUpon>CreateFinished.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateProduct.resx">
+      <DependentUpon>CreateProduct.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreatePurchase.resx">
       <DependentUpon>CreatePurchase.h</DependentUpon>
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DelFinished.resx">
       <DependentUpon>DelFinished.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelProduct.resx">
+      <DependentUpon>DelProduct.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DelPurchase.resx">
       <DependentUpon>DelPurchase.h</DependentUpon>

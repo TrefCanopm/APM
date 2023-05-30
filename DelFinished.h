@@ -61,51 +61,64 @@ namespace APM {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(437, 218);
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button1->Location = System::Drawing::Point(287, 76);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(327, 32);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Удолить элемент";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &DelFinished::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(12, 218);
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button2->Location = System::Drawing::Point(12, 76);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(269, 32);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Отмена";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &DelFinished::button2_Click);
 			// 
 			// label1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(47, 74);
+			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label1->Location = System::Drawing::Point(12, 24);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(317, 16);
+			this->label1->Size = System::Drawing::Size(425, 27);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Введите номер записи которую нужно удалить";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(385, 74);
+			this->textBox1->Location = System::Drawing::Point(445, 24);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->Size = System::Drawing::Size(169, 22);
 			this->textBox1->TabIndex = 3;
 			// 
 			// DelFinished
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(524, 253);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->ClientSize = System::Drawing::Size(624, 120);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"DelFinished";
-			this->Text = L"DelFinished";
+			this->Text = L"Удоление записи со склада готовой продукции";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
