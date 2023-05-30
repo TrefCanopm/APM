@@ -121,16 +121,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChangeSales.cpp" />
+    <ClCompile Include="ChangeWarehouse.cpp" />
+    <ClCompile Include="CreateSales.cpp" />
     <ClCompile Include="CreateWarehouse.cpp" />
+    <ClCompile Include="DeleteSales.cpp" />
     <ClCompile Include="DelWarehouse.cpp" />
+    <ClCompile Include="FinishedWarehouse.cpp" />
     <ClCompile Include="FormWarehouseResource.cpp" />
     <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="Production.cpp" />
+    <ClCompile Include="PurchaseOrdersForMaterials.cpp" />
+    <ClCompile Include="SalesOrder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChangeSales.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChangeWarehouse.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CreateSales.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="CreateWarehouse.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="DeleteSales.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DelWarehouse.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FinishedWarehouse.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FormWarehouseResource.h">
@@ -139,19 +162,43 @@
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Production.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PurchaseOrdersForMaterials.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SalesOrder.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChangeWarehouse.resx">
+      <DependentUpon>ChangeWarehouse.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateSales.resx">
+      <DependentUpon>CreateSales.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateWarehouse.resx">
       <DependentUpon>CreateWarehouse.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DelWarehouse.resx">
       <DependentUpon>DelWarehouse.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FinishedWarehouse.resx">
+      <DependentUpon>FinishedWarehouse.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormWarehouseResource.resx">
       <DependentUpon>FormWarehouseResource.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseOrdersForMaterials.resx">
+      <DependentUpon>PurchaseOrdersForMaterials.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesOrder.resx">
+      <DependentUpon>SalesOrder.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

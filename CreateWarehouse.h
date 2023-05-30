@@ -203,8 +203,8 @@ namespace APM {
 	}
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
 {
-	String^ Str;
-	String^ er;
+	String^ Str = "";
+	String^ er = "";
 	String^ a = "";
 	String^ b = "";
 	String^ c = "";
@@ -268,6 +268,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
 {
 	this->Close();
+	int i = 0;
 }
 };
 }
