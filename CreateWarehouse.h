@@ -194,7 +194,7 @@ namespace APM {
 	{
 		StreamReader^ file = File::OpenText(FileName);
 		String^ line = file->ReadLine();
-		while (line != nullptr)
+		while ((line != nullptr)&&(line != ""))
 		{
 			i++;
 			line = file->ReadLine();

@@ -11,12 +11,12 @@ namespace APM {
 	using namespace System::IO;
 
 	/// <summary>
-	/// Сводка для ChangeWarehouse
+	/// Сводка для ChangeFinished
 	/// </summary>
-	public ref class ChangeWarehouse : public System::Windows::Forms::Form
+	public ref class ChangeFinished : public System::Windows::Forms::Form
 	{
 	public:
-		ChangeWarehouse(void)
+		ChangeFinished(void)
 		{
 			InitializeComponent();
 			//
@@ -28,7 +28,7 @@ namespace APM {
 		/// <summary>
 		/// Освободить все используемые ресурсы.
 		/// </summary>
-		~ChangeWarehouse()
+		~ChangeFinished()
 		{
 			if (components)
 			{
@@ -38,18 +38,18 @@ namespace APM {
 	private: System::Windows::Forms::Button^ button1;
 	protected:
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::CheckBox^ checkBox1;
+	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::CheckBox^ checkBox1;
-	private: String^ FileName = "Fil Warehouse Resource.txt";
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
+	private: String^ FileName = "Fil Warehouse Finished.txt";
 	private: String^ str = "";
-	private: int K = 0;
 	private: bool f = 1;
+	private: int K = 0;
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -65,124 +65,125 @@ namespace APM {
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(449, 203);
+			this->button1->Location = System::Drawing::Point(506, 70);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(236, 23);
+			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Прменить изменение";
+			this->button1->Text = L"Поиск";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &ChangeWarehouse::button1_Click);
+			this->button1->Click += gcnew System::EventHandler(this, &ChangeFinished::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(23, 190);
+			this->button2->Location = System::Drawing::Point(23, 218);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"Закрыть";
+			this->button2->Text = L"Отмена";
 			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &ChangeWarehouse::button2_Click);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(281, 24);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(132, 16);
-			this->label1->TabIndex = 2;
-			this->label1->Text = L"Изменение записи";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(33, 80);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(174, 16);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"Введите номер элемента";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(213, 77);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
-			this->textBox1->TabIndex = 4;
+			this->button2->Click += gcnew System::EventHandler(this, &ChangeFinished::button2_Click);
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(329, 77);
+			this->button3->Location = System::Drawing::Point(731, 218);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
-			this->button3->TabIndex = 5;
-			this->button3->Text = L"Поиск";
+			this->button3->TabIndex = 2;
+			this->button3->Text = L"Применить изменения";
 			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &ChangeWarehouse::button3_Click);
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(23, 133);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 22);
-			this->textBox2->TabIndex = 6;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(141, 133);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 22);
-			this->textBox3->TabIndex = 7;
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(626, 133);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 22);
-			this->textBox4->TabIndex = 8;
+			this->button3->Click += gcnew System::EventHandler(this, &ChangeFinished::button3_Click);
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(270, 137);
+			this->checkBox1->Location = System::Drawing::Point(315, 142);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(18, 17);
-			this->checkBox1->TabIndex = 9;
+			this->checkBox1->Size = System::Drawing::Size(95, 20);
+			this->checkBox1->TabIndex = 3;
+			this->checkBox1->Text = L"checkBox1";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			// 
-			// ChangeWarehouse
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(374, 71);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->TabIndex = 4;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(506, 142);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(100, 22);
+			this->textBox2->TabIndex = 5;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(174, 142);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(100, 22);
+			this->textBox3->TabIndex = 6;
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(38, 142);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(100, 22);
+			this->textBox4->TabIndex = 7;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(344, 9);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(44, 16);
+			this->label1->TabIndex = 8;
+			this->label1->Text = L"label1";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(20, 71);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(326, 16);
+			this->label2->TabIndex = 9;
+			this->label2->Text = L"Введите номер записи которую нужно изменить";
+			// 
+			// ChangeFinished
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(727, 253);
-			this->Controls->Add(this->checkBox1);
+			this->ClientSize = System::Drawing::Size(891, 253);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->button3);
 			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->checkBox1);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Name = L"ChangeWarehouse";
-			this->Text = L"ChangeWarehouse";
+			this->Name = L"ChangeFinished";
+			this->Text = L"ChangeFinished";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
 	{
 		if (textBox1->Text == "")
 		{
@@ -206,7 +207,7 @@ namespace APM {
 				}
 				else
 				{
-					str = line+"\n";
+					str = line + "\n";
 				}
 				K++;
 				a = "";
@@ -214,7 +215,7 @@ namespace APM {
 			}
 			file->Close();
 			if (!f)
-			{	
+			{
 				int N = 0;
 				for (int i = 0; i < line->Length; i++)
 				{
@@ -249,7 +250,7 @@ namespace APM {
 			}
 		}
 	}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
 {
 	if (!f)
 	{
@@ -258,10 +259,10 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 			D = "1";
 		else
 			D = "0";
-		String^ a =textBox1->Text+"-"+textBox2->Text + "-" + textBox3->Text + "-" + D + "-" + textBox4->Text + "-";
+		String^ a = textBox1->Text + "-" + textBox2->Text + "-" + textBox3->Text + "-" + D + "-" + textBox4->Text + "-";
 		StreamReader^ file = File::OpenText(FileName);
 		String^ line = "";
-		for (int i = 0; i < K+1; i++)
+		for (int i = 0; i < K + 1; i++)
 		{
 			line = file->ReadLine();
 		}

@@ -273,7 +273,7 @@ namespace APM {
 		String^ f;
 			StreamReader^ file = File::OpenText(FileName);
 			String^ line = file->ReadLine();
-			while (line != nullptr)
+			while ((line != nullptr) && (line != ""))
 			{
 				int k = 0;
 				int i = 0;
@@ -286,7 +286,7 @@ namespace APM {
 						case 0: a += line[k]; break;
 						case 1: b += line[k]; break;
 						case 2: c += line[k]; break;
-						case 3:; if (line[k] == '1') d = 1; else d = 0; break;
+						case 3: if (line[k] == '1') d = 1; else d = 0; break;
 						case 4: f += line[k]; break;
 						}
 					}
@@ -335,7 +335,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	StreamReader^ file = File::OpenText(FileName);
 	String^ line = file->ReadLine();
 	I = 0;
-	while (line != nullptr)
+	while ((line != nullptr) && (line != ""))
 	{
 		int k = 0;
 		int i = 0;

@@ -1,5 +1,9 @@
 #pragma once
 
+#include "CreateFinished.h"
+#include "DelFinished.h"
+#include "ChangeFinished.h"
+
 namespace APM {
 
 	using namespace System;
@@ -8,7 +12,7 @@ namespace APM {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::IO;
 	/// <summary>
 	/// Сводка для FinishedWarehouse
 	/// </summary>
@@ -34,19 +38,28 @@ namespace APM {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridView^ Table;
 	protected:
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
-	private: System::Windows::Forms::DataGridViewCheckBoxColumn^ Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
+
+	protected:
+
+
+
+
+
+
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
+	private: String^ FileName = "Fil Warehouse Finished.txt";
+	private: int I = 0;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+	private: System::Windows::Forms::DataGridViewCheckBoxColumn^ Column4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 
 	private:
 		/// <summary>
@@ -61,39 +74,88 @@ namespace APM {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Table = (gcnew System::Windows::Forms::DataGridView());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Table))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// dataGridView1
+			// Table
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
-				this->Column1,
-					this->Column2, this->Column3, this->Column4, this->Column5, this->Column6
+			this->Table->AllowUserToAddRows = false;
+			this->Table->AllowUserToDeleteRows = false;
+			this->Table->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->Table->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->Table->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->Column1, this->Column2,
+					this->Column3, this->Column4, this->Column5
 			});
-			this->dataGridView1->Location = System::Drawing::Point(12, 12);
-			this->dataGridView1->MinimumSize = System::Drawing::Size(10, 0);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(1460, 389);
-			this->dataGridView1->TabIndex = 0;
+			this->Table->Location = System::Drawing::Point(12, 12);
+			this->Table->MinimumSize = System::Drawing::Size(10, 0);
+			this->Table->Name = L"Table";
+			this->Table->ReadOnly = true;
+			this->Table->RowHeadersWidth = 51;
+			this->Table->RowTemplate->Height = 24;
+			this->Table->Size = System::Drawing::Size(1460, 389);
+			this->Table->TabIndex = 0;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(12, 407);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(1460, 50);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"Добавить запись о продукте";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button1_Click);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(12, 463);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(1460, 50);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Изменить запись о продукте";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button2_Click);
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(10, 519);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(1460, 50);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Удолить запись о продукте";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button3_Click);
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(12, 575);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(1460, 50);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Обнавить таблицу";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button4_Click);
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(10, 631);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(1460, 50);
+			this->button5->TabIndex = 5;
+			this->button5->Text = L"Закрыть окно";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button5_Click);
 			// 
 			// Column1
 			// 
@@ -132,58 +194,6 @@ namespace APM {
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
 			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Сколько % от количества продать";
-			this->Column6->MinimumWidth = 6;
-			this->Column6->Name = L"Column6";
-			this->Column6->ReadOnly = true;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(12, 407);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(1460, 50);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"Добавить запись о продукте";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(12, 463);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(1460, 50);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Изменить запись о продукте";
-			this->button2->UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(10, 519);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(1460, 50);
-			this->button3->TabIndex = 3;
-			this->button3->Text = L"Удолить запись о продукте";
-			this->button3->UseVisualStyleBackColor = true;
-			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(12, 575);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(1460, 50);
-			this->button4->TabIndex = 4;
-			this->button4->Text = L"Обнавить таблицу";
-			this->button4->UseVisualStyleBackColor = true;
-			// 
-			// button5
-			// 
-			this->button5->Location = System::Drawing::Point(10, 631);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(1460, 50);
-			this->button5->TabIndex = 5;
-			this->button5->Text = L"Закрыть окно";
-			this->button5->UseVisualStyleBackColor = true;
-			// 
 			// FinishedWarehouse
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -194,13 +204,124 @@ namespace APM {
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->Table);
 			this->Name = L"FinishedWarehouse";
 			this->Text = L"FinishedWarehouse";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->Load += gcnew System::EventHandler(this, &FinishedWarehouse::FinishedWarehouse_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Table))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+private: System::Void FinishedWarehouse_Load(System::Object^ sender, System::EventArgs^ e) 
+{
+	String^ a;
+	String^ b;
+	String^ c;
+	bool d;
+	String^ f;
+	StreamReader^ file = File::OpenText(FileName);
+	String^ line = file->ReadLine();
+	while ((line != nullptr) && (line != ""))
+	{
+		int k = 0;
+		int i = 0;
+		while (line->Length > k)
+		{
+			if (line[k] != '-')
+			{
+				switch (i)
+				{
+				case 0: a += line[k]; break;
+				case 1: b += line[k]; break;
+				case 2: c += line[k]; break;
+				case 3: if (line[k] == '1') d = 1; else d = 0; break;
+				case 4: f += line[k]; break;
+				}
+			}
+			else
+			{
+				if (i == 4)
+					Table->Rows->Add(a, b, c, d, f);
+				i++;
+			}
+			k++;
+		}
+		a = b = c = f =  "";
+		line = file->ReadLine();
+		I++;
+	}
+	file->Close();
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	CreateFinished^ form = gcnew CreateFinished;
+	form->Show();
+}
+
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	ChangeFinished^ form = gcnew ChangeFinished;
+	form->Show();
+}
+
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	DelFinished^ form = gcnew DelFinished;
+	form->Show();
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	if (I > 0)
+	{
+		for (int i = 0; i < I;i++)
+		{
+			Table->Rows->RemoveAt(0);
+		}
+	}
+	String^ a;
+	String^ b;
+	String^ c;
+	bool d;
+	String^ f;
+	StreamReader^ file = File::OpenText(FileName);
+	String^ line = file->ReadLine();
+	I = 0;
+	while ((line != nullptr) && (line != ""))
+	{
+		int k = 0;
+		int i = 0;
+		while (line->Length > k)
+		{
+			if (line[k] != '-')
+			{
+				switch (i)
+				{
+				case 0: a += line[k]; break;
+				case 1: b += line[k]; break;
+				case 2: c += line[k]; break;
+				case 3:; if (line[k] == '1') d = 1; else d = 0; break;
+				case 4: f += line[k]; break;
+				}
+			}
+			else
+			{
+				if (i == 4)
+					Table->Rows->Add(a, b, c, d, f);
+				i++;
+			}
+			k++;
+		}
+		a = b = c = f = "";
+		line = file->ReadLine();
+		I++;
+	}
+	file->Close();
+}
+
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Close();
+}
 };
 }

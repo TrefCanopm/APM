@@ -143,7 +143,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		StreamReader^ file = File::OpenText(FileName);
 		String^ a;
 		String^ line = file->ReadLine();
-		while (line != nullptr)
+		while ((line != nullptr) && (line != ""))
 		{
 			
 			for (int i = 0; line[i] != '-'; i++)
@@ -196,6 +196,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 						}
 						str += a + "\n";
 					}
+					kl = 0;
+					a = "";
 				}
 				I++;
 			}

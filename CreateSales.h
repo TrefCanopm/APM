@@ -185,7 +185,7 @@ private: System::Void CreateSales_Load(System::Object^ sender, System::EventArgs
 {
 	StreamReader^ file = File::OpenText(FileName);
 	String^ line = file->ReadLine();
-	while (line != nullptr)
+	while ((line != nullptr)&&(line != ""))
 	{
 		i++;
 		line = file->ReadLine();

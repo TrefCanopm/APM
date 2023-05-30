@@ -224,7 +224,7 @@ namespace APM {
 		String^ f;
 		StreamReader^ file = File::OpenText(FileName);
 		String^ line = file->ReadLine();
-		while (line != nullptr)
+		while ((line != nullptr)&&(line != ""))
 		{
 			int k = 0;
 			int i = 0;
@@ -282,7 +282,7 @@ private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e
 	StreamReader^ file = File::OpenText(FileName);
 	String^ line = file->ReadLine();
 	I = 0;
-	while (line != nullptr)
+	while ((line != nullptr)&&(line != ""))
 	{
 		int k = 0;
 		int i = 0;

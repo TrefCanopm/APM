@@ -121,11 +121,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChangeFinished.cpp" />
+    <ClCompile Include="ChangeProduct.cpp" />
+    <ClCompile Include="ChangePurchase.cpp" />
     <ClCompile Include="ChangeSales.cpp" />
     <ClCompile Include="ChangeWarehouse.cpp" />
+    <ClCompile Include="CreateFinished.cpp" />
+    <ClCompile Include="CreateProduct.cpp" />
+    <ClCompile Include="CreatePurchase.cpp" />
     <ClCompile Include="CreateSales.cpp" />
     <ClCompile Include="CreateWarehouse.cpp" />
     <ClCompile Include="DeleteSales.cpp" />
+    <ClCompile Include="DelFinished.cpp" />
+    <ClCompile Include="DelProduct.cpp" />
+    <ClCompile Include="DelPurchase.cpp" />
     <ClCompile Include="DelWarehouse.cpp" />
     <ClCompile Include="FinishedWarehouse.cpp" />
     <ClCompile Include="FormWarehouseResource.cpp" />
@@ -135,10 +144,28 @@
     <ClCompile Include="SalesOrder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChangeFinished.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChangeProduct.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ChangePurchase.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ChangeSales.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ChangeWarehouse.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CreateFinished.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CreateProduct.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CreatePurchase.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CreateSales.h">
@@ -148,6 +175,15 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DeleteSales.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DelFinished.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DelProduct.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DelPurchase.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DelWarehouse.h">
@@ -173,14 +209,38 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChangeFinished.resx">
+      <DependentUpon>ChangeFinished.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePurchase.resx">
+      <DependentUpon>ChangePurchase.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeSales.resx">
+      <DependentUpon>ChangeSales.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangeWarehouse.resx">
       <DependentUpon>ChangeWarehouse.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateFinished.resx">
+      <DependentUpon>CreateFinished.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePurchase.resx">
+      <DependentUpon>CreatePurchase.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateSales.resx">
       <DependentUpon>CreateSales.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateWarehouse.resx">
       <DependentUpon>CreateWarehouse.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteSales.resx">
+      <DependentUpon>DeleteSales.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelFinished.resx">
+      <DependentUpon>DelFinished.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelPurchase.resx">
+      <DependentUpon>DelPurchase.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DelWarehouse.resx">
       <DependentUpon>DelWarehouse.h</DependentUpon>
@@ -193,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Production.resx">
+      <DependentUpon>Production.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrdersForMaterials.resx">
       <DependentUpon>PurchaseOrdersForMaterials.h</DependentUpon>
