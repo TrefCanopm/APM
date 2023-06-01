@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <algorithm>
 
 typedef std::vector<int> V_int;
 
@@ -103,6 +104,8 @@ namespace APM {
 	{
 		UpdatePurchase();
 		UpdateResource();
+		UpdateProduction();
+		this->Close();
 	}
 	private: void UpdatePurchase()
 	{
@@ -408,12 +411,490 @@ namespace APM {
 	}
 	private: void UpdateResource()
 	{
+		String^ S = "";
+		String^ a = "";
+		String^ b = "";
+		String^ c = "";
+		String^ d = "";
+		String^ f = "";
+		String^ er = "";
+		int N = 0;
 		StreamReader^ file = File::OpenText(FileNameResource);
 		String^ line = file->ReadLine();
+		while ((line != "") && (line != nullptr))
+		{
+			for (int i = 0; i < line->Length; i++)
+			{
+				if (line[i] == '-')
+				{
+					switch (N)
+					{
+					case 0: a = S; break;
+					case 1: b = S; break;
+					case 2: c = S; break;
+					case 3: d = S; break;
+					case 4: f = S; break;
+					}
+					N++;
+					S = "";
+					if (N == 5)
+					{
+						N = 0;
+					}
+				}
+				else
+				{
+					S += line[i];
+				}
+			}
+			if (d == "1")
+			{
+				if (System::Convert::ToInt32(f) > System::Convert::ToInt32(d))
+				{
+					er += b+", ";
+				}
+			}
+			a = b = c = d = f = "";
+			line = file->ReadLine();
+		}
+		if (er != "")
+		{
+			MessageBox::Show(this, "ќформите заказ на покупку следующих материалов: "+er , "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		file->Close();
 	}
 	private: void UpdateProduction()
 	{
+		StreamReader^ file = File::OpenText(FileNameProduction);
+		String^ line = file->ReadLine();
+		String^ StrProd = "";
+		String^ Str = "";
+		String^ Str1 = "";
+		String^ S = "";
+		String^ a = "";
+		int N = 0;
+		bool f = 0;
+		while ((line != "") && (line != nullptr))
+		{
+			for (int i = 0; i < line->Length; i++)
+			{
+				if (line[i] == '-')
+				{
+					if (N > 3)
+					{
+						switch (N)
+						{
+						case 4:
+						{
+							Str += S + "-";
+						}
+						case 5:
+						{
+							a = S;
+							break;
+						}
+						case 6:
+						{
+							if ((System::Convert::ToInt32(S) - 1) == 0)
+							{
+								Str1 += Str + a + "-" + a + "-\n";
+								f = 1;
+							}
+							else
+							{
+								Str1 += Str + a + "-" + (System::Convert::ToInt32(S) - 1).ToString() + "-\n";
+							}
+							a = "";
+							Str = "";
+							break;
+						}
+						}
+						S = "";
+					}
+					else
+					{
+						S += line[i];
+					}
+					N++;
+				}
+				else
+				{
+					S += line[i];
+				}
+			}
+			N = 0;
+			if (f)
+			{
+				StrProd += line + "\n";
+			}
+			f = 0;
+			line = file->ReadLine();
+		}
+		file->Close();
+		File::Delete(FileNameProduction);
+		StreamWriter^ file1 = File::CreateText(FileNameProduction);
+		file1->Write(Str1);
+		file1->Close();
 
+		String^ StrResource = "";
+		String^ StrFinished = "";
+		if (StrProd != "")
+		{
+			for (int i = 0; i < StrProd->Length; i++)
+			{
+				if (StrProd[i] != '\n')
+				{
+					if (StrProd[i] == '-')
+					{
+						switch (N)
+						{
+						case 1: StrResource += S + "-"; break;
+						case 2: StrResource += S + "-\n"; break;
+						case 3: StrFinished += S + "-"; break;
+						case 4: StrFinished += S + "-\n"; break;
+						}
+						N++;
+						S = "";
+					}
+					else
+					{
+						S += StrProd[i];
+					}
+				}
+				else
+				{
+					N = 0;
+				}
+			}
+
+			file = File::OpenText(FileNameResource);
+			line = file->ReadLine();
+			StrProd = StrResource;
+			StrResource = "";
+			String^ er = "";
+			V_int V = {};
+			f = 1;
+			int n = 0;
+			int N1 = 0;
+			int k = 0;
+
+			String^ b = "";
+			String^ c1 = "";
+
+			while ((line != nullptr) && (line != ""))
+			{
+				for (int i = 0; i < line->Length; i++)
+				{
+					if (line[i] == '-')
+					{
+						if (N < 3)
+						{
+							switch (N)
+							{
+							case 0:StrResource += S + "-"; break;
+							case 1:
+							{
+								b = S;
+								while ((n < StrProd->Length) && f)
+								{
+									while (StrProd[n] != '\n')
+									{
+										if (StrProd[n] == '-')
+										{
+											switch (k)
+											{
+											case 0:
+											{
+												if (S == a)
+												{
+													V.push_back(N1);
+													f = 0;
+												}
+												a = "";
+												break;
+											}
+											case 1:
+											{
+												c1 = a;
+											}
+											}
+											k++;
+											a = "";
+										}
+										else
+										{
+											a += StrProd[n];
+										}
+										n++;
+									}
+									N1++;
+									k = 0;
+									n++;
+								}
+								n = 0;
+								N1 = 0;
+								StrResource += S + "-";
+								break;
+							}
+							case 2:
+							{
+								if (!f)
+								{
+									if ((System::Convert::ToInt32(S) - System::Convert::ToInt32(c1)) >= 0)
+									{
+										S = (System::Convert::ToInt32(S) - System::Convert::ToInt32(c1)).ToString();
+									}
+									else
+									{
+										V.erase(V.end() - 1);
+									}
+								}
+								c1 = "";
+								f = 1;
+								StrResource += S + "-";
+							}
+							}
+							N++;
+							S = "";
+						}
+						else
+						{
+							S += line[i];
+						}
+					}
+					else
+					{
+						S += line[i];
+					}
+				}
+				StrResource += S + "\n";
+				line = file->ReadLine();
+				S = "";
+				N = 0;
+			}
+
+			file->Close();
+			File::Delete(FileNameResource);
+			file1 = File::CreateText(FileNameResource);
+			file1->Write(StrResource);
+			file1->Close();
+
+			Str = "";
+			std::sort(V.begin(), V.end());
+
+			for (int i = 0; i < StrProd->Length; i++)
+			{
+				if (StrProd[i] != '\n')
+				{
+					if (StrProd[i] == '-')
+					{
+						if (k == 0)
+						{
+							a = S;
+						}
+						k++;
+					}
+					else
+					{
+						S += StrProd[i];
+					}
+				}
+				else
+				{
+					k = 0;
+					if (V.size() != 0)
+					{
+						if (N != V[n])
+						{
+							er += a + ", ";
+						}
+						else
+						{
+							n++;
+						}
+						N++;
+						a = "";
+					}
+					else
+					{
+						er += a + ", ";
+					}
+				}
+			}
+
+			S = "";
+			N = n = 0;
+
+			if (er != "")
+			{
+				MessageBox::Show(this, "ƒл€ производства не хватает следующих материалов: " + er, "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			if (V.size() != 0)
+			{
+				for (int i = 0; i < StrFinished->Length; i++)
+				{
+					if (StrFinished[i] != '\n')
+					{
+
+						S += StrFinished[i];
+					}
+					else
+					{
+						if (N == V[n])
+						{
+							Str += S + "\n";
+							n++;
+						}
+						N++;
+						S = "";
+					}
+				}
+
+				StrProd = Str;
+				StrFinished = "";
+				Str = "";
+				V.clear();
+
+				N = n = 0;
+				int K = 0;
+
+				file = File::OpenText(FileNameFinished);
+				line = file->ReadLine();
+
+				while ((line != nullptr) && (line != ""))
+				{
+					for (int i = 0; i < line->Length; i++)
+					{
+						if (line[i] == '-')
+						{
+							if (N < 3)
+							{
+								switch (N)
+								{
+								case 0: StrFinished += S + "-"; break;
+								case 1:
+								{
+									b = S;
+									while ((n < StrProd->Length) && f)
+									{
+										while (StrProd[n] != '\n')
+										{
+											if (StrProd[n] == '-')
+											{
+												switch (N1)
+												{
+												case 0:
+												{
+													if (S == a)
+													{
+														V.push_back(N1);
+														f = 0;
+													}
+													break;
+												}
+												case 1:
+												{
+													c1 = a;
+												}
+												}
+												N1++;
+												a = "";
+											}
+											else
+											{
+												a += StrProd[n];
+											}
+											n++;
+										}
+										N1 = 0;
+										n++;
+									}
+									n = 0;
+									StrFinished += S + "-";
+									break;
+								}
+								case 2:
+								{
+									if (!f)
+									{
+										StrFinished += (System::Convert::ToInt32(S) + System::Convert::ToInt32(c1)).ToString() + "-";
+										c1 = "";
+									}
+									else
+									{
+										StrFinished += S + "-";
+									}
+									f = 1;
+									break;
+								}
+								}
+								N++;
+								S = "";
+							}
+							else
+							{
+								S += line[i];
+							}
+						}
+						else
+						{
+							S += line[i];
+						}
+					}
+					StrFinished += S + "\n";
+					S = "";
+					N = 0;
+					K++;
+					line = file->ReadLine();
+				}
+
+				std::sort(V.begin(), V.end());
+
+				for (int i = 0; i < StrProd->Length; i++)
+				{
+					if (StrFinished[i] != '\n')
+					{
+						S += StrFinished[i];
+					}
+					else
+					{
+						if (N != V[n])
+						{
+							Str += S + "\n";
+							n++;
+						}
+						N++;
+
+						S = "";
+					}
+				}
+
+				StrProd = Str;
+
+				if ((StrProd != "") && (StrProd != nullptr))
+				{
+					for (int i = 0; i < StrProd->Length; i++)
+					{
+						if (StrProd[i] == '\n')
+						{
+							StrFinished += (K + 1).ToString() + S + "0--\n";
+							S = "";
+						}
+						else
+						{
+							S += StrProd[i];
+						}
+					}
+				}
+
+				file->Close();
+				File::Delete(FileNameFinished);
+				file1 = File::CreateText(FileNameFinished);
+				file1->Write(StrFinished);
+				file1->Close();
+				V.clear();
+			}
+		}
 	}
 	private: void UpdateFinished()
 	{
