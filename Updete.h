@@ -105,6 +105,7 @@ namespace APM {
 		UpdatePurchase();
 		UpdateResource();
 		UpdateProduction();
+		UpdateFinished();
 		this->Close();
 	}
 	private: void UpdatePurchase()
@@ -449,7 +450,7 @@ namespace APM {
 			}
 			if (d == "1")
 			{
-				if (System::Convert::ToInt32(f) > System::Convert::ToInt32(d))
+				if (System::Convert::ToInt32(f) > System::Convert::ToInt32(c))
 				{
 					er += b+", ";
 				}
@@ -898,7 +899,55 @@ namespace APM {
 	}
 	private: void UpdateFinished()
 	{
-
+		String^ str = "";
+		String^ S = "";
+		String^ a = "";
+		String^ b = "";
+		String^ c = "";
+		String^ d = "";
+		String^ f = "";
+		String^ er = "";
+		int N = 0;
+		StreamReader^ file = File::OpenText(FileNameFinished);
+		String^ line = file->ReadLine();
+		while ((line != "") && (line != nullptr))
+		{
+			for (int i = 0; i < line->Length;i++)
+			{
+				if (line[i] == '-')
+				{
+					switch (N)
+					{
+					case 0: a = S; break;
+					case 1: b = S; break;
+					case 2: c = S; break;
+					case 3: d = S; break;
+					case 4: f = S; break;
+					}
+					S = "";
+					N++;
+					if (N == 5) N = 0;
+				}
+				else
+				{
+					S += line[i];
+				}
+			}
+			if (d == "1")
+			{
+				if (System::Convert::ToInt32(f) < System::Convert::ToInt32(c))
+				{
+					er += b + ", ";
+				}
+			}
+			str += a + "-" + b + "-" + c + "-" + d + "-" + f + "-\n";
+			line = file->ReadLine();
+		}
+		if (er != "")
+		{
+			MessageBox::Show(this, "Оформите заказ на продажу для большого количество следующих товаров: " + er, "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		file->Close();
 	}
     private: void UpdateSales()
     {
