@@ -4,6 +4,7 @@
 #include "Production.h"
 #include "SalesOrder.h"
 #include "PurchaseOrdersForMaterials.h"
+#include "Updete.h"
 
 namespace APM {
 
@@ -48,12 +49,15 @@ namespace APM {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Button^ button6;
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -62,6 +66,7 @@ namespace APM {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -70,6 +75,8 @@ namespace APM {
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -178,6 +185,21 @@ namespace APM {
 			this->label3->Text = L"Производственный процесс";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// timer1
+			// 
+			this->timer1->Interval = 10000;
+			this->timer1->Tick += gcnew System::EventHandler(this, &MainForm::timer1_Tick);
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(516, 9);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(75, 23);
+			this->button6->TabIndex = 8;
+			this->button6->Text = L"button6";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MainForm::button6_Click);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -185,6 +207,7 @@ namespace APM {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(192)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
 			this->ClientSize = System::Drawing::Size(729, 542);
+			this->Controls->Add(this->button6);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
@@ -195,6 +218,7 @@ namespace APM {
 			this->Controls->Add(this->button1);
 			this->Name = L"MainForm";
 			this->Text = L"Окно управления";
+			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->ResumeLayout(false);
 
 		}
@@ -222,6 +246,19 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) 
 {
 	Production^ form = gcnew Production;
+	form->Show();
+}
+private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) 
+{
+	//timer1->Start();
+}
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e)
+{
+
+}
+private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) 
+{	
+	Updete^ form = gcnew Updete;
 	form->Show();
 }
 };

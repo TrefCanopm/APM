@@ -142,6 +142,7 @@
     <ClCompile Include="Production.cpp" />
     <ClCompile Include="PurchaseOrdersForMaterials.cpp" />
     <ClCompile Include="SalesOrder.cpp" />
+    <ClCompile Include="Updete.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChangeFinished.h">
@@ -205,6 +206,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SalesOrder.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Updete.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -271,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalesOrder.resx">
       <DependentUpon>SalesOrder.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updete.resx">
+      <DependentUpon>Updete.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
