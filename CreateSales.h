@@ -111,7 +111,7 @@ namespace APM {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(291, 27);
 			this->label1->TabIndex = 2;
-			this->label1->Text = L"Создать бланк продажи";
+			this->label1->Text = L"Создать бланка продажи";
 			// 
 			// label2
 			// 

@@ -46,13 +46,15 @@ namespace APM {
 	private: String^ FileNameSales = "Fil Sales Order.txt";
 	private: String^ FileNamePurchase = "Fil Purchase Orders For Materials.txt";
 	private: String^ FileNameProduction = "Fil Production.txt";
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::ComponentModel::IContainer^ components;
 	protected:
 
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -61,8 +63,10 @@ namespace APM {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// progressBar1
@@ -84,6 +88,9 @@ namespace APM {
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Обновление данных. Дождитесь завершения обновления.";
 			// 
+			// timer1
+			// 
+			// 
 			// Updete
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -95,19 +102,15 @@ namespace APM {
 			this->Controls->Add(this->progressBar1);
 			this->Name = L"Updete";
 			this->Text = L"Обновление данных";
-			this->Load += gcnew System::EventHandler(this, &Updete::Updete_Load);
+			this->Shown += gcnew System::EventHandler(this, &Updete::Updete_Shown);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void Updete_Load(System::Object^ sender, System::EventArgs^ e)
-	{
-		UpdatePurchase();
-		UpdateResource();
-		UpdateProduction();
-		UpdateFinished();
-		this->Close();
-	}
+	//private: System::Void Updete_Load(System::Object^ sender, System::EventArgs^ e)
+	//{
+	//	timer1->Start();
+	//}
 	private: void UpdatePurchase()
 	{
 		String^ str = "";
@@ -951,7 +954,338 @@ namespace APM {
 	}
     private: void UpdateSales()
     {
+		String^ str = "";
+		String^ str1 = "";
+		String^ StrSales = "";
+		String^ S = "";
+		int N = 0;
+		int r = 0;
 
+		String^ a = "";
+		String^ b = "";
+		String^ c = "";
+		String^ c1 = "";
+
+		StreamReader^ file = File::OpenText(FileNameSales);
+		String^ line = file->ReadLine();
+		while ((line != nullptr) && (line != ""))
+		{
+			for (int i = 0; i < line->Length; i++)
+			{
+				if (line[i] == '-')
+				{
+					switch (N)
+					{
+					case 0: a = S; break;
+					case 1: b = S; break;
+					case 2: c = S; break;
+					case 3:
+					{
+						if (System::Convert::ToInt32(S) - 1 != 0)
+						{
+							str += a + "-" + b + "-" + c + "-" + (System::Convert::ToInt32(S) - 1).ToString() + "-\n";
+						}
+						else
+						{
+							StrSales += a + "-" + b + "-" + c + "-\n";
+							str += a + "-" + b+"-" + c + "-" + "0-\n";
+						}
+						break;
+					}
+					}
+
+					N++;
+					S = "";
+				}
+				else
+				{
+					S += line[i];
+				}
+			}
+
+			S = "";
+			N = 0;
+			line = file->ReadLine();
+		}
+
+		a = b = c = "";
+		file->Close();
+		File::Delete(FileNameSales);
+		StreamWriter^ file1 = File::CreateText(FileNameSales);
+		file1->Write(str);
+		file1->Close();
+
+		str = "";
+
+		if (StrSales != "")
+		{
+			int n = 0;
+			bool f = 1;
+			int N1 = 0;
+
+			file = File::OpenText(FileNameFinished);
+			line = file->ReadLine();
+			V_int V;
+			int K = 0;
+			while ((line != "") && (line != nullptr))
+			{
+				for (int i = 0; i < line->Length;i++)
+				{
+					if (line[i] == '-')
+					{
+						if (N < 3)
+						{
+							switch (N)
+							{
+							case 0: a = S; break;
+							case 1: b = S; break;
+							case 2:
+							{
+								while ((n < StrSales->Length) && f)
+								{
+									while (StrSales[n] != '\n')
+									{
+										if (StrSales[n] == '-')
+										{
+											switch (N1)
+											{
+											case 1:
+											{
+												if (b == str)
+												{
+													V.push_back(K);
+													f = 0;
+												}
+												break;
+											}
+											case 2: c = str; break;
+											}
+											str = "";
+											N1++;
+										}
+										else
+										{
+											str += StrSales[n];
+										}
+										n++;
+									}
+									K++;
+									N1 = 0;
+									n++;
+								}
+								K = 0;
+								n = 0;
+								if (!f)
+								{
+									if ((System::Convert::ToInt32(S) - System::Convert::ToInt32(c)) < 0)
+									{
+										V.erase(V.end() - 1);
+										c = S;
+									}
+									else
+									{
+										c = (System::Convert::ToInt32(S) - System::Convert::ToInt32(c)).ToString();
+									}
+								}
+								else
+								{
+									c = S;
+								}
+								f = 1;
+							}
+							}
+
+							N++;
+							S = "";
+						}
+						else
+						{
+							S += line[i];
+						}
+					}
+					else
+					{
+						S += line[i];
+					}
+				}
+
+				str1 += a + "-" + b + "-" + c + "-" + S + "\n";
+				S = "";
+				N = 0;
+				line = file->ReadLine();
+			}
+
+			std::sort(V.begin(), V.end());
+			String^ er = "";
+			String^ er1 = "";
+
+			N1 = n = 0;
+
+			if (V.size() != 0)
+			{
+				for (int i = 0; i < StrSales->Length; i++)
+				{
+					if (StrSales[i] == '\n')
+					{
+						if (N1 != V[n])
+						{
+							er += b + ", ";
+							er1 += a + ", ";
+						}
+						else
+						{
+							n++;
+						}
+						N = 0;
+						N1++;
+					}
+					else
+					{
+						if (StrSales[i] == '-')
+						{
+							switch (N)
+							{
+							case 0: a = S; break;
+							case 1: b = S; break;
+							}
+							N++;
+							S = "";
+						}
+						else
+						{
+							S += StrSales[i];
+						}
+					}
+				}
+			}
+			else
+			{
+				for (int i = 0; i < StrSales->Length; i++)
+				{
+					if (StrSales[i] == '\n')
+					{
+						er += b + ", ";
+						er1 += a + ", ";
+						N = 0;
+					}
+					else
+					{
+						if (StrSales[i] == '-')
+						{
+							switch (N)
+							{
+							case 0: a = S; break;
+							case 1: b = S; break;
+							}
+							N++;
+							S = "";
+						}
+						else
+						{
+							S += StrSales[i];
+						}
+					}
+				}
+			}
+			if (er != "")
+			{
+				MessageBox::Show(this, "Просрочено время на отгрузку следующих товаров: " + er + "\n" + "Внесите изменение во время отгрузки следующих записей: " + er1, "Information", MessageBoxButtons::OK, MessageBoxIcon::Information);
+			}
+			file->Close();
+			File::Delete(FileNameFinished);
+			StreamWriter^ file1 = File::CreateText(FileNameFinished);
+			file1->Write(str1);
+			file1->Close();
+
+			f = 1;
+			N = n = 0;
+			S = str = str1 = "";
+			file = File::OpenText(FileNameSales);
+			line = file->ReadLine();
+			while ((line != nullptr) && (line != ""))
+			{
+				for (int i = 0; i < line->Length;i++)
+				{
+					if (line[i] == '-')
+					{
+						if ((N != 1))
+						{
+							switch (N)
+							{
+							case 0: a = S; break;
+							case 2: b = S; break;
+							case 3:
+							{
+								if (S == "0")
+								{
+									while ((n < er1->Length) && f)
+									{
+										if (er1[n] == ',')
+										{
+											if (a == str1)
+												f = 0;
+											str1 = "";
+										}
+										else
+										{
+											if(er1[n] != ' ')
+												str1 += er1[n];
+										}
+										n++;
+									}
+									n = 0;
+									r++;
+								}
+								else
+								{
+									str += (System::Convert::ToInt32(a)-r).ToString() + "-" + b + "-" + S + "-\n";
+								}
+								if (!f)
+								{
+									r--;
+									str += (System::Convert::ToInt32(a) - r).ToString() + "-" + b + "-" + S + "-\n";
+								}
+								f = 1;
+							}
+							case 4: N = 0; break;
+							}
+							S = "";
+						}
+						else
+						{
+							S += line[i];
+						}
+						N++;
+					}
+					else
+					{
+						S += line[i];
+					}
+				}
+				N = 0;
+				line = file->ReadLine();
+			}
+			file->Close();
+			File::Delete(FileNameSales);
+			file1 = File::CreateText(FileNameSales);
+			file1->Write(str);
+			file1->Close();
+	     V.clear();
+		}
     }
-	};
+private: System::Void Updete_Shown(System::Object^ sender, System::EventArgs^ e) {
+	progressBar1->Value = 10;
+		UpdatePurchase();
+		progressBar1->Value = 30;
+		UpdateResource();
+		progressBar1->Value = 50;
+		UpdateProduction();
+		progressBar1->Value = 70;
+		UpdateFinished();
+		progressBar1->Value = 90;
+		UpdateSales();
+		progressBar1->Value = 100;
+		this->Close();
+}
+};
 }

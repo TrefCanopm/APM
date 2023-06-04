@@ -110,15 +110,15 @@ namespace APM {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(12, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(326, 22);
+			this->label1->Size = System::Drawing::Size(425, 22);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"¬ведите номер записи которую нужно изменить";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(360, 12);
+			this->textBox1->Location = System::Drawing::Point(443, 12);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(140, 22);
+			this->textBox1->Size = System::Drawing::Size(80, 22);
 			this->textBox1->TabIndex = 2;
 			// 
 			// button2
@@ -344,7 +344,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		else
 		{
-			MessageBox::Show(this, "Ёлемента с введЄнным номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show(this, "Ёлемента с введЄнным номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}
 }

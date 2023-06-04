@@ -89,7 +89,7 @@ namespace APM {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(697, 60);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Склад Материалов";
+			this->button1->Text = L"Склад материалов";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MainForm::button1_Click);
 			// 

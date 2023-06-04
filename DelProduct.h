@@ -68,15 +68,15 @@ namespace APM {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(9, 30);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(399, 27);
+			this->label1->Size = System::Drawing::Size(461, 27);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"¬ведите номер записи которую нужно удолить";
+			this->label1->Text = L"¬ведите номер записи которую нужно удалить";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(414, 34);
+			this->textBox1->Location = System::Drawing::Point(476, 34);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(207, 22);
+			this->textBox1->Size = System::Drawing::Size(145, 22);
 			this->textBox1->TabIndex = 1;
 			// 
 			// button1
@@ -119,7 +119,7 @@ namespace APM {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->Name = L"DelProduct";
-			this->Text = L"”доление записи с производства";
+			this->Text = L"”даление записи с производства";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -208,7 +208,7 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Ёлемента с введЄнным номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Ёлемента с введЄнным номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 			textBox1->Text = "";
 		}

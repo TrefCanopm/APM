@@ -89,7 +89,7 @@ namespace APM {
 				static_cast<System::Byte>(204)));
 			this->label2->Location = System::Drawing::Point(12, 9);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(238, 22);
+			this->label2->Size = System::Drawing::Size(252, 22);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Введите номер элемента ";
 			// 
@@ -197,7 +197,7 @@ namespace APM {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(329, 22);
 			this->label1->TabIndex = 14;
-			this->label1->Text = L"Название продоваемой продукции:";
+			this->label1->Text = L"Название продаваемой продукции:";
 			// 
 			// label3
 			// 
@@ -292,7 +292,7 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Элемента с введённым номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Элемента с введённым номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	}

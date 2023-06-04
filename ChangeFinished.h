@@ -136,9 +136,9 @@ namespace APM {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(344, 9);
+			this->textBox1->Location = System::Drawing::Point(457, 9);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(291, 22);
+			this->textBox1->Size = System::Drawing::Size(178, 22);
 			this->textBox1->TabIndex = 4;
 			// 
 			// textBox2
@@ -182,7 +182,7 @@ namespace APM {
 				static_cast<System::Byte>(204)));
 			this->label2->Location = System::Drawing::Point(12, 9);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(326, 22);
+			this->label2->Size = System::Drawing::Size(432, 23);
 			this->label2->TabIndex = 9;
 			this->label2->Text = L"Введите номер записи которую нужно изменить";
 			// 
@@ -208,7 +208,7 @@ namespace APM {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(410, 22);
 			this->label4->TabIndex = 11;
-			this->label4->Text = L"Есть ли афто продажа";
+			this->label4->Text = L"Есть ли автопродажа";
 			// 
 			// label5
 			// 
@@ -220,7 +220,7 @@ namespace APM {
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(410, 22);
 			this->label5->TabIndex = 12;
-			this->label5->Text = L"Количество материала для афто продажи";
+			this->label5->Text = L"Количество материала для автопродажи";
 			// 
 			// label6
 			// 
@@ -325,7 +325,7 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Элемента с введённым номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Элемента с введённым номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	}

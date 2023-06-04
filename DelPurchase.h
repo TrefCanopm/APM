@@ -97,9 +97,9 @@ namespace APM {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(12, 28);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(425, 27);
+			this->label1->Size = System::Drawing::Size(423, 27);
 			this->label1->TabIndex = 2;
-			this->label1->Text = L"¬ведите номер удол€емой записи";
+			this->label1->Text = L"¬ведите номер удал€емой записи";
 			// 
 			// textBox1
 			// 
@@ -209,7 +209,7 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Ёлемента с введЄнным номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Ёлемента с введЄнным номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 			textBox1->Text = "";
 		}

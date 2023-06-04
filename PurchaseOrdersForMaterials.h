@@ -157,7 +157,7 @@ namespace APM {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(1460, 55);
 			this->button2->TabIndex = 2;
-			this->button2->Text = L"Удолить заказ ";
+			this->button2->Text = L"Удалить заказ ";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &PurchaseOrdersForMaterials::button2_Click);
 			// 
@@ -199,7 +199,7 @@ namespace APM {
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(1460, 55);
 			this->button5->TabIndex = 5;
-			this->button5->Text = L"Изменит заказ";
+			this->button5->Text = L"Изменить заказ";
 			this->button5->UseVisualStyleBackColor = false;
 			this->button5->Click += gcnew System::EventHandler(this, &PurchaseOrdersForMaterials::button5_Click);
 			// 

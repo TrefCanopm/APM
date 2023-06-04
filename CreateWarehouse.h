@@ -119,7 +119,7 @@ namespace APM {
 			   this->label2->Name = L"label2";
 			   this->label2->Size = System::Drawing::Size(387, 23);
 			   this->label2->TabIndex = 3;
-			   this->label2->Text = L"Нужна ли афто докупка материалов\r\n";
+			   this->label2->Text = L"Нужна ли автодокупка материалов\r\n";
 			   // 
 			   // label3
 			   // 
@@ -155,7 +155,7 @@ namespace APM {
 			   this->label5->Name = L"label5";
 			   this->label5->Size = System::Drawing::Size(387, 23);
 			   this->label5->TabIndex = 6;
-			   this->label5->Text = L"Количество материала для афто докупки\r\n";
+			   this->label5->Text = L"Количество материала для автодокупки\r\n";
 			   // 
 			   // textBox3
 			   // 
@@ -244,7 +244,7 @@ namespace APM {
 		bool A = 1, B = 1, C = 1;
 		if (textBox1->Text == "")
 		{
-			er = er + "íàçâàíèå ìàòåðèàëà, ";
+			er = er + "название материала, ";
 			f = 0;
 		}
 		else
@@ -253,7 +253,7 @@ namespace APM {
 		}
 		if (textBox5->Text == "")
 		{
-			er = er + "êîëè÷åñòâî ìàòåðèàëà, ";
+			er = er + "количество материалов, ";
 			f = 0;
 		}
 		else
@@ -264,7 +264,7 @@ namespace APM {
 		{
 			if (textBox3->Text == "")
 			{
-				er = er + "ïîðîã êîëè÷åñòâà ìàòåðèàëà äëÿ äîêóïêè, ";
+				er = er + "количество материалов для автодокупки, ";
 
 				f = 0;
 			}
@@ -288,7 +288,7 @@ namespace APM {
 		}
 		else
 		{
-			MessageBox::Show(this, "Ââåäèòå çíà÷åíèå â ïîëÿõ " + er, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show(this, "Введите данные в следующие поля " + er, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 		textBox1->Text = "";
 		textBox3->Text = "";

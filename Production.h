@@ -102,7 +102,7 @@ namespace APM {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(1460, 55);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"Создания процесса создания продукта";
+			this->button1->Text = L"Добавить процесс создания продукта";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &Production::button1_Click);
 			// 
@@ -130,7 +130,7 @@ namespace APM {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(1460, 55);
 			this->button3->TabIndex = 2;
-			this->button3->Text = L"Удоление процесса создания продукта";
+			this->button3->Text = L"Удаление процесса создания продукта";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &Production::button3_Click);
 			// 

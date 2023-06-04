@@ -81,7 +81,7 @@ namespace APM {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(474, 27);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"¬ведите номер элемента который надо удолить";
+			this->label2->Text = L"¬ведите номер элемента который надо удалить";
 			// 
 			// button1
 			// 
@@ -222,7 +222,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		}
 		else
 		{
-			MessageBox::Show(this, "Ёлемента с введЄнным номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show(this, "Ёлемента с введЄнным номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 		textBox1->Text = "";
 	}

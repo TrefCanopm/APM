@@ -207,7 +207,7 @@ namespace APM {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(379, 22);
 			this->label3->TabIndex = 11;
-			this->label3->Text = L"Активна ли афто докупка";
+			this->label3->Text = L"Активна ли автодокупка";
 			// 
 			// label4
 			// 
@@ -220,7 +220,7 @@ namespace APM {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(377, 26);
 			this->label4->TabIndex = 12;
-			this->label4->Text = L"Количество материала для афто докупки";
+			this->label4->Text = L"Количество материала для автодокупки";
 			// 
 			// label5
 			// 
@@ -288,11 +288,11 @@ namespace APM {
 		else
 		{
 			StreamReader^ file = File::OpenText(FileName);
-			String^ a;
+			String^ a = "";
 			String^ line;
-			while (f)
+            line = file->ReadLine();
+			while (f && ((line != "") && (line != nullptr)))
 			{
-				line = file->ReadLine();
 				for (int i = 0; line[i] != '-'; i++)
 				{
 					a = a + line[i];
@@ -304,10 +304,10 @@ namespace APM {
 				else
 				{
 					str = line+"\n";
+					line = file->ReadLine();
 				}
 				K++;
 				a = "";
-
 			}
 			file->Close();
 			if (!f)
@@ -342,7 +342,8 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Элемента с введённым номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Элемента с введённым номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				f = 1;
 			}
 		}
 	}

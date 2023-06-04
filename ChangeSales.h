@@ -183,7 +183,7 @@ namespace APM {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(329, 22);
 			this->label1->TabIndex = 10;
-			this->label1->Text = L"Название продоваемой продукции:";
+			this->label1->Text = L"Название продаваемой продукции:";
 			// 
 			// label4
 			// 
@@ -290,7 +290,7 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Элемента с введённым номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Элемента с введённым номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 	}

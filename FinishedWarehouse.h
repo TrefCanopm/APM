@@ -61,6 +61,11 @@ namespace APM {
 	private: System::Windows::Forms::DataGridViewCheckBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 
+
+
+
+
+
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -75,16 +80,16 @@ namespace APM {
 		void InitializeComponent(void)
 		{
 			this->Table = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Table))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -108,43 +113,6 @@ namespace APM {
 			this->Table->RowTemplate->Height = 24;
 			this->Table->Size = System::Drawing::Size(1460, 366);
 			this->Table->TabIndex = 0;
-			// 
-			// Column1
-			// 
-			this->Column1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
-			this->Column1->HeaderText = L"№";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			this->Column1->Width = 30;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Название товара";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Количество товара";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Нужнали афто продажа";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Парог количества элементов для афто продажи";
-			this->Column5->MinimumWidth = 6;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
 			// 
 			// button1
 			// 
@@ -184,7 +152,7 @@ namespace APM {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(1460, 55);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"Удолить запись о продукте";
+			this->button3->Text = L"Удалить запись о продукте";
 			this->button3->UseVisualStyleBackColor = false;
 			this->button3->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button3_Click);
 			// 
@@ -198,7 +166,7 @@ namespace APM {
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(1460, 55);
 			this->button4->TabIndex = 4;
-			this->button4->Text = L"Обнавить таблицу";
+			this->button4->Text = L"Обновить таблицу";
 			this->button4->UseVisualStyleBackColor = false;
 			this->button4->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button4_Click);
 			// 
@@ -215,6 +183,43 @@ namespace APM {
 			this->button5->Text = L"Закрыть окно";
 			this->button5->UseVisualStyleBackColor = false;
 			this->button5->Click += gcnew System::EventHandler(this, &FinishedWarehouse::button5_Click);
+			// 
+			// Column1
+			// 
+			this->Column1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::None;
+			this->Column1->HeaderText = L"№";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			this->Column1->Width = 30;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Название товара";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Количество товара";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Нужна ли автопродажа";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Порог количества элементов для автопродажи";
+			this->Column5->MinimumWidth = 6;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
 			// 
 			// FinishedWarehouse
 			// 

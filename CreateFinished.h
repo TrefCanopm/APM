@@ -130,7 +130,7 @@ namespace APM {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(421, 19);
 			this->label3->TabIndex = 4;
-			this->label3->Text = L"Нужнали афто продажа";
+			this->label3->Text = L"Нужнали автопродажа";
 			// 
 			// label4
 			// 
@@ -142,7 +142,7 @@ namespace APM {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(421, 22);
 			this->label4->TabIndex = 5;
-			this->label4->Text = L"Количество продукции для афто продажы";
+			this->label4->Text = L"Количество продукции для автопродажы";
 			// 
 			// checkBox1
 			// 

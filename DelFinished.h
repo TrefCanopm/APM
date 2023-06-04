@@ -69,7 +69,7 @@ namespace APM {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(327, 32);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"”долить элемент";
+			this->button1->Text = L"”далить элемент";
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &DelFinished::button1_Click);
 			// 
@@ -95,15 +95,15 @@ namespace APM {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(12, 24);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(425, 27);
+			this->label1->Size = System::Drawing::Size(461, 27);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"¬ведите номер записи которую нужно удалить";
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(445, 24);
+			this->textBox1->Location = System::Drawing::Point(479, 24);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(169, 22);
+			this->textBox1->Size = System::Drawing::Size(135, 22);
 			this->textBox1->TabIndex = 3;
 			// 
 			// DelFinished
@@ -118,7 +118,7 @@ namespace APM {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"DelFinished";
-			this->Text = L"”доление записи со склада готовой продукции";
+			this->Text = L"”даление записи со склада готовой продукции";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -212,7 +212,7 @@ namespace APM {
 			}
 			else
 			{
-				MessageBox::Show(this, "Ёлемента с введЄнным номер нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show(this, "Ёлемента с введЄнным номером нет в таблице", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 			textBox1->Text = "";
 		}

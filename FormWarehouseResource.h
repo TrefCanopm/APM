@@ -58,13 +58,18 @@ namespace APM {
 	  private: String^ FileName = "Fil Warehouse Resource.txt";
 	private: StreamReader^ sr;
 	private: int I = 0;
+
+
+
+
+
+	private: System::Windows::Forms::Button^ button5;
+	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column4;
 	private: System::Windows::Forms::DataGridViewCheckBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
-	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Button^ button2;
 
 
 
@@ -96,16 +101,16 @@ namespace APM {
 		void InitializeComponent(void)
 		{
 			this->Table = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Table))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -129,42 +134,6 @@ namespace APM {
 			this->Table->RowTemplate->Height = 24;
 			this->Table->Size = System::Drawing::Size(1460, 366);
 			this->Table->TabIndex = 0;
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"№";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Название материала";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Количество продукции на складе";
-			this->Column4->MinimumWidth = 6;
-			this->Column4->Name = L"Column4";
-			this->Column4->ReadOnly = true;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Автоматическое аформление заказа";
-			this->Column5->MinimumWidth = 6;
-			this->Column5->Name = L"Column5";
-			this->Column5->ReadOnly = true;
-			this->Column5->Resizable = System::Windows::Forms::DataGridViewTriState::True;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Порог продукции на складе";
-			this->Column6->MinimumWidth = 6;
-			this->Column6->Name = L"Column6";
-			this->Column6->ReadOnly = true;
 			// 
 			// button1
 			// 
@@ -240,6 +209,42 @@ namespace APM {
 			this->button2->Text = L"Удаление информации о материале";
 			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &FormWarehouseResource::button2_Click_1);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"№";
+			this->Column1->MinimumWidth = 6;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Название материала";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Количество продукции на складе";
+			this->Column4->MinimumWidth = 6;
+			this->Column4->Name = L"Column4";
+			this->Column4->ReadOnly = true;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Автоматическое оформление заказа";
+			this->Column5->MinimumWidth = 6;
+			this->Column5->Name = L"Column5";
+			this->Column5->ReadOnly = true;
+			this->Column5->Resizable = System::Windows::Forms::DataGridViewTriState::True;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Порог продукции на складе";
+			this->Column6->MinimumWidth = 6;
+			this->Column6->Name = L"Column6";
+			this->Column6->ReadOnly = true;
 			// 
 			// FormWarehouseResource
 			// 
