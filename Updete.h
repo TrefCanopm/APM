@@ -697,6 +697,7 @@ namespace APM {
 							a = S;
 						}
 						k++;
+						S = "";
 					}
 					else
 					{
@@ -706,23 +707,23 @@ namespace APM {
 				else
 				{
 					k = 0;
-					if (V.size() != 0)
+					if (V.size() > n)
 					{
-						if (N != V[n])
-						{
-							er += a + ", ";
-						}
-						else
-						{
-							n++;
-						}
-						N++;
-						a = "";
+							if (N != V[n])
+							{
+								er += a + ", ";
+							}
+							else
+							{
+								n++;
+							}
+							N++;
 					}
 					else
 					{
 						er += a + ", ";
 					}
+					a = "";
 				}
 			}
 
@@ -744,19 +745,22 @@ namespace APM {
 					}
 					else
 					{
-						if (N == V[n])
+						if (N <= V[V.size() - 1])
 						{
-							Str += S + "\n";
-							n++;
+							if (N == V[n])
+							{
+								Str += S + "\n";
+								n++;
+							}
+							N++;
+							S = "";
 						}
-						N++;
-						S = "";
 					}
 				}
 
 				StrProd = Str;
 				StrFinished = "";
-				Str = "";
+				Str = S = "";
 				V.clear();
 
 				N = n = 0;
@@ -853,7 +857,8 @@ namespace APM {
 				}
 
 				std::sort(V.begin(), V.end());
-
+				n = 0;
+				if(V.size()!= 0)
 				for (int i = 0; i < StrProd->Length; i++)
 				{
 					if (StrFinished[i] != '\n')
@@ -862,13 +867,12 @@ namespace APM {
 					}
 					else
 					{
-						if (N != V[n])
-						{
-							Str += S + "\n";
-							n++;
-						}
+							if (N != V[n])
+							{
+								Str += S + "\n";
+								n++;
+							}
 						N++;
-
 						S = "";
 					}
 				}
